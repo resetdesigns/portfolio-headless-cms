@@ -11,7 +11,7 @@ import { RowComponent } from './components/structure/row/row.component';
     RowComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   providers: [],
