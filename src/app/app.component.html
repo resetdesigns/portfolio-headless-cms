@@ -1,2 +1,8 @@
 Test page
 <router-outlet></router-outlet>
+<article *ngFor="let page of pages">
+  <h2>
+    <a [routerLink]="page.fields.slug">{{ page.fields.internalTitle }}</a>
+  </h2>
+  <p>{{ page.fields.slug }}</p>
+</article>

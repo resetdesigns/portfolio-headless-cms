@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  CONTENTFUL_API_ACCESS_TOKEN: 'AazzEE0BAc83kUTS7r8Yaq6G_ziYkxqlbh6623P88Ag',
+  // Contentful API authentication credentials
+  contentful: {
+    space: '1q8fb1hdekqp',
+    accessToken: 'TyNRjeXVFMFBO6BPfyPKeh5DKMFj5znZM0bxDDpWo4k',
+  },
 };
 
 /*

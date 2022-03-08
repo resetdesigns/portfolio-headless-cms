@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Global } from './shared/global';
 
+import { Entry } from 'contentful';
+
+import { Page } from './shared/contentful/page';
+import { ContentfulApiService } from './shared/contentful/contentful-api.service';
+
 const GET_PAGE_DATA = `
   query GetPageData($slug: String!) {
     structurePageCollection (
@@ -23,11 +28,16 @@ const GET_PAGE_DATA = `
 })
 export class AppComponent implements OnInit {
   title = 'portfolio-headless-cms';
-  page: any;
+  pages: Array<Entry<Page>>;
   fetchComplete: boolean = false;
 
+  constructor(private contentfulApiService: ContentfulApiService) {}
+
   ngOnInit() {
-    this.getPageData();
+    // this.getPageData();
+    this.contentfulApiService
+      .getPages()
+      .then((Page) => (this.pages = Page.items));
   }
 
   getPageData() {
